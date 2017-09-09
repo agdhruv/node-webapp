@@ -2,7 +2,8 @@ const express = require('express');
 
 var app = express();
 
-app.use(express.static(__dirname + '/public'));
+// Make static web server to avoid creating routes for every static file
+app.use(express.static(__dirname + '/public')); // use method helps use Express Middleware like express.static()
 
 app.get('/', (req, res) => {
 	// res.send('<h2>Hello Express!</h2>');
