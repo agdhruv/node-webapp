@@ -23,7 +23,7 @@ app.get('/about', (req, res) => {
 app.get('/bad', (req, res) => {
 	res.send({
 		errorMessage: 'Error handling request'
-	});
+	}); // passing a JS Object to the send automatically sends JSON data to the browser
 });
 
 app.listen(3000, () => {
