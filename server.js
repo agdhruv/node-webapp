@@ -1,6 +1,9 @@
 const express = require('express');
+const hbs = require('hbs');
 
 var app = express();
+
+app.set('view engine', 'hbs');
 
 // Make static web server to avoid creating routes for every static file
 app.use(express.static(__dirname + '/public')); // use method helps use Express Middleware like express.static()
@@ -17,7 +20,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/about', (req, res) => {
-	res.send('About page');
+	res.render('about.hbs');
 });
 
 app.get('/bad', (req, res) => {
