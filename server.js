@@ -31,9 +31,9 @@ app.use((req, res, next) => {
 	next();
 });
 
-// app.use((req, res, next) => {
-// 	res.render('maintenance.hbs');
-// });
+app.use((req, res, next) => {
+	res.render('maintenance.hbs');
+});
 
 // Make static web server to avoid creating routes for every static file
 app.use(express.static(__dirname + '/public')); // use method helps use Express Middleware like express.static()
