@@ -5,6 +5,7 @@ const fs = require('fs');
 var app = express();
 
 hbs.registerPartials(__dirname + '/views/partials');
+
 // tell the app that we will be using handlebars for our templating
 app.set('view engine', 'hbs');
 
@@ -12,13 +13,10 @@ app.set('view engine', 'hbs');
 hbs.registerHelper('getCurrentYear', () => {
 	return new Date().getFullYear();
 });
+
 hbs.registerHelper('screamIt', (text) => {
 	return text.toUpperCase();
 });
-
-// Make static web server to avoid creating routes for every static file
-app.use(express.static(__dirname + '/public')); // use method helps use Express Middleware like express.static()
-
 
 app.use((req, res, next) => {
 	var now = new Date().toString();
@@ -32,6 +30,13 @@ app.use((req, res, next) => {
 	});
 	next();
 });
+
+// app.use((req, res, next) => {
+// 	res.render('maintenance.hbs');
+// });
+
+// Make static web server to avoid creating routes for every static file
+app.use(express.static(__dirname + '/public')); // use method helps use Express Middleware like express.static()
 
 
 app.get('/', (req, res) => {
