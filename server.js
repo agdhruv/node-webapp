@@ -60,6 +60,12 @@ app.get('/bad', (req, res) => {
 	}); // passing a JS Object to the send automatically sends JSON data to the browser
 });
 
+app.get('/projects', (req, res) =>{
+	res.render('projects.hbs', {
+		pageTitle: 'Portfolio Page'
+	});
+});
+
 app.listen(port, () => {
 	console.log(`Server is up on port ${port}.`);
 });
